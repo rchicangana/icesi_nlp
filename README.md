@@ -17,10 +17,12 @@ icesi_nlp/
 ├── README.md
 └── Session 1/
     └── Taller 1/
-        ├── 7-taller-sentiment-analysis.ipynb   # Análisis de sentimientos
-        ├── 7-SpamClasificationNLTK.ipynb        # Clasificación spam/ham con NLTK
-        ├── SMSSpamCollection.tsv                # Dataset SMS Spam Collection
-        └── requirements.txt                     # Dependencias del taller
+        ├── AnalisisTexto.ipynb                   # Análisis de texto con spaCy
+        ├── 7-taller-sentiment-analysis.ipynb     # Análisis de sentimientos
+        ├── 7-SpamClasificationNLTK.ipynb         # Clasificación spam/ham con NLTK
+        ├── GameofThrones-mini.txt                # Fragmento de texto de ejemplo
+        ├── SMSSpamCollection.tsv                 # Dataset SMS Spam Collection
+        └── requirements.txt                      # Dependencias del taller
 ```
 
 - **Session N:** corresponde a la sesión del curso.
@@ -70,6 +72,9 @@ icesi_nlp/
 ---
 
 ## Session 1 - Taller 1
+
+### AnalisisTexto.ipynb
+Análisis de texto con **spaCy**: procesamiento lingüístico, entidades nombradas, análisis sintáctico y más sobre textos de ejemplo. Usa el archivo `GameofThrones-mini.txt` como corpus.
 
 ### 7-taller-sentiment-analysis.ipynb
 Análisis de sentimientos sobre reseñas o textos.
