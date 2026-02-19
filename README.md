@@ -15,12 +15,12 @@ Este repositorio agrupa los talleres y entregables prácticos del curso. Cada se
 ```
 icesi_nlp/
 ├── README.md
-├── Session 1/
-│   └── Taller 1/
-│       ├── SpamClasificationNLTK.ipynb   # Clasificación spam/ham con NLTK
-│       ├── SMSSpamCollection.tsv          # Dataset SMS Spam Collection
-│       └── requirements.txt               # Dependencias del taller
-└── ...
+└── Session 1/
+    └── Taller 1/
+        ├── 7-taller-sentiment-analysis.ipynb   # Análisis de sentimientos
+        ├── 7-SpamClasificationNLTK.ipynb        # Clasificación spam/ham con NLTK
+        ├── SMSSpamCollection.tsv                # Dataset SMS Spam Collection
+        └── requirements.txt                     # Dependencias del taller
 ```
 
 - **Session N:** corresponde a la sesión del curso.
@@ -69,10 +69,14 @@ icesi_nlp/
 
 ---
 
-## Session 1 - Taller 1: Clasificación spam/ham con NLTK
+## Session 1 - Taller 1
 
+### 7-taller-sentiment-analysis.ipynb
+Análisis de sentimientos sobre reseñas o textos.
+
+### 7-SpamClasificationNLTK.ipynb
 - **Objetivo:** clasificación binaria (spam vs ham) usando NLTK para features y scikit-learn para el modelo.
-- **Dataset:** [SMS Spam Collection](https://archive.ics.uci.edu/dataset/228/sms+spam+collection).
+- **Dataset:** [SMS Spam Collection](https://archive.ics.uci.edu/dataset/228/sms+spam+collection) (`SMSSpamCollection.tsv`).
 - **Contenido:** tokenización, stopwords, FreqDist, bigramas (BigramCollocationFinder), VADER, heurísticas de formato; regresión logística y evaluación (métricas, matriz de confusión).
 
 ---
