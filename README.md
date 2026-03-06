@@ -20,11 +20,10 @@ icesi_nlp/
 │       ├── AnalisisTexto.ipynb                   # Análisis de texto con spaCy
 │       ├── 7-taller-sentiment-analysis.ipynb     # Análisis de sentimientos
 │       ├── 7-SpamClasificationNLTK.ipynb         # Clasificación spam/ham con NLTK
-│       ├── GameofThrones-mini.txt                # Fragmento de texto de ejemplo
-│       ├── SMSSpamCollection.tsv                 # Dataset SMS Spam Collection
+│       ├── data/                                 # Datos (GameofThrones-mini.txt, sms_spam_collection, etc.)
+│       ├── SMSSpamCollection.tsv                # Dataset SMS Spam Collection
 │       └── requirements.txt                      # Dependencias del taller
 └── Session 2/
-    ├── 2-nlp-with-lstm.ipynb                    # Material: NLP con LSTM
     └── Taller/
         └── Taller_NLP_Sesion_2_Emotion_Analysis.ipynb   # Análisis de emociones (LSTM)
 ```
@@ -91,9 +90,6 @@ Análisis de sentimientos sobre reseñas o textos.
 ---
 
 ## Session 2 - Taller
-
-### 2-nlp-with-lstm.ipynb
-Material de la sesión: introducción a redes recurrentes (LSTM) aplicadas a NLP.
 
 ### Taller_NLP_Sesion_2_Emotion_Analysis.ipynb
 - **Objetivo:** clasificación de emociones en texto (6 clases: ira, miedo, alegría, amor, tristeza, sorpresa) usando un modelo LSTM.
