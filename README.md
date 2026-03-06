@@ -15,18 +15,22 @@ Este repositorio agrupa los talleres y entregables prácticos del curso. Cada se
 ```
 icesi_nlp/
 ├── README.md
-└── Session 1/
-    └── Taller 1/
-        ├── AnalisisTexto.ipynb                   # Análisis de texto con spaCy
-        ├── 7-taller-sentiment-analysis.ipynb     # Análisis de sentimientos
-        ├── 7-SpamClasificationNLTK.ipynb         # Clasificación spam/ham con NLTK
-        ├── GameofThrones-mini.txt                # Fragmento de texto de ejemplo
-        ├── SMSSpamCollection.tsv                 # Dataset SMS Spam Collection
-        └── requirements.txt                      # Dependencias del taller
+├── Session 1/
+│   └── Taller 1/
+│       ├── AnalisisTexto.ipynb                   # Análisis de texto con spaCy
+│       ├── 7-taller-sentiment-analysis.ipynb     # Análisis de sentimientos
+│       ├── 7-SpamClasificationNLTK.ipynb         # Clasificación spam/ham con NLTK
+│       ├── GameofThrones-mini.txt                # Fragmento de texto de ejemplo
+│       ├── SMSSpamCollection.tsv                 # Dataset SMS Spam Collection
+│       └── requirements.txt                      # Dependencias del taller
+└── Session 2/
+    ├── 2-nlp-with-lstm.ipynb                    # Material: NLP con LSTM
+    └── Taller/
+        └── Taller_NLP_Sesion_2_Emotion_Analysis.ipynb   # Análisis de emociones (LSTM)
 ```
 
 - **Session N:** corresponde a la sesión del curso.
-- **Taller M:** taller o práctica de esa sesión (notebooks, datos, `requirements` si aplica).
+- **Taller / Taller M:** taller o práctica de esa sesión (notebooks, datos, `requirements` si aplica).
 
 ---
 
@@ -83,6 +87,18 @@ Análisis de sentimientos sobre reseñas o textos.
 - **Objetivo:** clasificación binaria (spam vs ham) usando NLTK para features y scikit-learn para el modelo.
 - **Dataset:** [SMS Spam Collection](https://archive.ics.uci.edu/dataset/228/sms+spam+collection) (`SMSSpamCollection.tsv`).
 - **Contenido:** tokenización, stopwords, FreqDist, bigramas (BigramCollocationFinder), VADER, heurísticas de formato; regresión logística y evaluación (métricas, matriz de confusión).
+
+---
+
+## Session 2 - Taller
+
+### 2-nlp-with-lstm.ipynb
+Material de la sesión: introducción a redes recurrentes (LSTM) aplicadas a NLP.
+
+### Taller_NLP_Sesion_2_Emotion_Analysis.ipynb
+- **Objetivo:** clasificación de emociones en texto (6 clases: ira, miedo, alegría, amor, tristeza, sorpresa) usando un modelo LSTM.
+- **Dataset:** Emotion (mensajes de Twitter en inglés), vía Hugging Face `datasets`.
+- **Contenido:** preprocesamiento, tokenización, vocabulario, `Dataset`/`DataLoader`, bloque LSTM + clasificador, entrenamiento con PyTorch Lightning, evaluación y análisis de predicciones erróneas.
 
 ---
 
