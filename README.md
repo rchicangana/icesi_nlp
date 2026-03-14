@@ -44,32 +44,28 @@ icesi_nlp/
 ## Cómo empezar
 
 1. Clonar el repositorio:
-   ```bash
+  ```bash
    git clone <url-del-repo>
    cd icesi_nlp
-   ```
-
+  ```
 2. Crear un entorno virtual (recomendado):
-   ```bash
+  ```bash
    python -m venv .venv
    .venv\Scripts\activate   # Windows
    # source .venv/bin/activate   # Linux/macOS
-   ```
-
+  ```
 3. Instalar dependencias del taller que vayas a usar, por ejemplo para Session 1 / Taller 1:
-   ```bash
+  ```bash
    pip install -r "Session 1/Taller 1/requirements.txt"
-   ```
-
+  ```
 4. Descargar recursos NLTK (si el taller usa NLTK): dentro del notebook o en Python:
-   ```python
+  ```python
    import nltk
    nltk.download('punkt')
    nltk.download('punkt_tab')
    nltk.download('stopwords')
    nltk.download('vader_lexicon')
-   ```
-
+  ```
 5. Abrir el notebook desde Jupyter o VS Code y ejecutar las celdas en orden.
 
 ---
@@ -77,12 +73,15 @@ icesi_nlp/
 ## Session 1 - Taller 1
 
 ### AnalisisTexto.ipynb
+
 Análisis de texto con **spaCy**: procesamiento lingüístico, entidades nombradas, análisis sintáctico y más sobre textos de ejemplo. Usa el archivo `GameofThrones-mini.txt` como corpus.
 
 ### 7-taller-sentiment-analysis.ipynb
+
 Análisis de sentimientos sobre reseñas o textos.
 
 ### 7-SpamClasificationNLTK.ipynb
+
 - **Objetivo:** clasificación binaria (spam vs ham) usando NLTK para features y scikit-learn para el modelo.
 - **Dataset:** [SMS Spam Collection](https://archive.ics.uci.edu/dataset/228/sms+spam+collection) (`SMSSpamCollection.tsv`).
 - **Contenido:** tokenización, stopwords, FreqDist, bigramas (BigramCollocationFinder), VADER, heurísticas de formato; regresión logística y evaluación (métricas, matriz de confusión).
@@ -92,6 +91,7 @@ Análisis de sentimientos sobre reseñas o textos.
 ## Session 2 - Taller
 
 ### Taller_NLP_Sesion_2_Emotion_Analysis.ipynb
+
 - **Objetivo:** clasificación de emociones en texto (6 clases: ira, miedo, alegría, amor, tristeza, sorpresa) usando un modelo LSTM.
 - **Dataset:** Emotion (mensajes de Twitter en inglés), vía Hugging Face `datasets`.
 - **Contenido:** preprocesamiento, tokenización, vocabulario, `Dataset`/`DataLoader`, bloque LSTM + clasificador, entrenamiento con PyTorch Lightning, evaluación y análisis de predicciones erróneas.
