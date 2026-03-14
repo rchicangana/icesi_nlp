@@ -21,11 +21,15 @@ icesi_nlp/
 │       ├── 7-taller-sentiment-analysis.ipynb     # Análisis de sentimientos
 │       ├── 7-SpamClasificationNLTK.ipynb         # Clasificación spam/ham con NLTK
 │       ├── data/                                 # Datos (GameofThrones-mini.txt, sms_spam_collection, etc.)
-│       ├── SMSSpamCollection.tsv                # Dataset SMS Spam Collection
+│       ├── SMSSpamCollection.tsv                 # Dataset SMS Spam Collection
 │       └── requirements.txt                      # Dependencias del taller
-└── Session 2/
+├── Session 2/
+│   └── Taller/
+│       └── Taller_NLP_Sesion_2_Emotion_Analysis.ipynb   # Análisis de emociones (LSTM)
+└── Session 3/
     └── Taller/
-        └── Taller_NLP_Sesion_2_Emotion_Analysis.ipynb   # Análisis de emociones (LSTM)
+        ├── taller3_transformers_from_scratch.ipynb     # Transformer desde (casi) cero, clasificación de emociones
+        └── tokenizer_emotion/                           # Tokenizer guardado (opcional, para reproducibilidad)
 ```
 
 - **Session N:** corresponde a la sesión del curso.
@@ -37,7 +41,7 @@ icesi_nlp/
 
 - **Python** 3.10 (recomendado).
 - **Jupyter** (o entorno que ejecute notebooks).
-- Dependencias por taller: ver `requirements.txt` dentro de cada carpeta de taller (por ejemplo `Session 1/Taller 1/requirements.txt`).
+- Dependencias por taller: ver `requirements.txt` dentro de cada carpeta de taller (por ejemplo `Session 1/Taller 1/requirements.txt`). **Session 3** instala sus dependencias desde el propio notebook (PyTorch Lightning, `transformers`, `datasets`); también puede ejecutarse en Google Colab.
 
 ---
 
@@ -95,6 +99,17 @@ Análisis de sentimientos sobre reseñas o textos.
 - **Objetivo:** clasificación de emociones en texto (6 clases: ira, miedo, alegría, amor, tristeza, sorpresa) usando un modelo LSTM.
 - **Dataset:** Emotion (mensajes de Twitter en inglés), vía Hugging Face `datasets`.
 - **Contenido:** preprocesamiento, tokenización, vocabulario, `Dataset`/`DataLoader`, bloque LSTM + clasificador, entrenamiento con PyTorch Lightning, evaluación y análisis de predicciones erróneas.
+
+---
+
+## Session 3 - Taller
+
+### taller3_transformers_from_scratch.ipynb
+
+- **Objetivo:** clasificación de emociones (6 clases: sadness, joy, love, anger, fear, surprise) con una arquitectura **Transformer** implementada desde (casi) cero (codificación posicional, multi-head attention, bloques Transformer, FFN).
+- **Dataset:** [dair-ai/emotion](https://huggingface.co/datasets/dair-ai/emotion) (mensajes de Twitter en inglés).
+- **Contenido:** tokenizador propio (WordPiece/BPE) entrenado sobre el corpus y guardado para reproducibilidad; embeddings + positional encoding (sinusoidal o aprendible); bloques de atención multicabeza y capas residuales; entrenamiento con PyTorch Lightning (deterministic, early stopping); evaluación con accuracy, F1, matriz de confusión (incl. porcentual) y análisis de errores. Compatible con ejecución local y en **Google Colab** (carga del tokenizer desde el repo sin clonar).
+- **Reproducibilidad:** el tokenizer se guarda en `tokenizer_emotion/`; en ejecuciones posteriores se carga desde ahí para obtener resultados consistentes.
 
 ---
 
