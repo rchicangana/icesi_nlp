@@ -26,10 +26,14 @@ icesi_nlp/
 ├── Session 2/
 │   └── Taller/
 │       └── Taller_NLP_Sesion_2_Emotion_Analysis.ipynb   # Análisis de emociones (LSTM)
-└── Session 3/
+├── Session 3/
+│   └── Taller/
+│       ├── taller3_transformers_from_scratch.ipynb     # Transformer desde (casi) cero, clasificación de emociones
+│       └── tokenizer_emotion/                           # Tokenizer guardado (opcional, para reproducibilidad)
+└── Session 4/
     └── Taller/
-        ├── taller3_transformers_from_scratch.ipynb     # Transformer desde (casi) cero, clasificación de emociones
-        └── tokenizer_emotion/                           # Tokenizer guardado (opcional, para reproducibilidad)
+        ├── 1-text-classification-with-hf.ipynb          # Clasificación de emociones con BERT (Hugging Face)
+        └── hf/                                          # Checkpoints de entrenamiento (artefactos opcionales)
 ```
 
 - **Session N:** corresponde a la sesión del curso.
@@ -41,7 +45,7 @@ icesi_nlp/
 
 - **Python** 3.10 (recomendado).
 - **Jupyter** (o entorno que ejecute notebooks).
-- Dependencias por taller: ver `requirements.txt` dentro de cada carpeta de taller (por ejemplo `Session 1/Taller 1/requirements.txt`). **Session 3** instala sus dependencias desde el propio notebook (PyTorch Lightning, `transformers`, `datasets`); también puede ejecutarse en Google Colab.
+- Dependencias por taller: ver `requirements.txt` dentro de cada carpeta de taller (por ejemplo `Session 1/Taller 1/requirements.txt`). **Session 3** y **Session 4** instalan dependencias desde el propio notebook (PyTorch / PyTorch Lightning, `transformers`, `datasets`, `evaluate`, etc.); ambas pueden ejecutarse en **Google Colab** o en local con GPU recomendada para entrenar con comodidad.
 
 ---
 
@@ -110,6 +114,18 @@ Análisis de sentimientos sobre reseñas o textos.
 - **Dataset:** [dair-ai/emotion](https://huggingface.co/datasets/dair-ai/emotion) (mensajes de Twitter en inglés).
 - **Contenido:** tokenizador propio (WordPiece/BPE) entrenado sobre el corpus y guardado para reproducibilidad; embeddings + positional encoding (sinusoidal o aprendible); bloques de atención multicabeza y capas residuales; entrenamiento con PyTorch Lightning (deterministic, early stopping); evaluación con accuracy, F1, matriz de confusión (incl. porcentual) y análisis de errores. Compatible con ejecución local y en **Google Colab** (carga del tokenizer desde el repo sin clonar).
 - **Reproducibilidad:** el tokenizer se guarda en `tokenizer_emotion/`; en ejecuciones posteriores se carga desde ahí para obtener resultados consistentes.
+
+---
+
+## Session 4 - Taller
+
+### 1-text-classification-with-hf.ipynb
+
+- **Objetivo:** clasificación de emociones en inglés con **BERT** y el ecosistema **Hugging Face** (fine-tuning / transfer learning), en lugar de implementar el Transformer desde cero.
+- **Dataset:** [dair-ai/emotion](https://huggingface.co/datasets/dair-ai/emotion) (mismo que en el Taller 3; seis etiquetas: sadness, joy, love, anger, fear, surprise).
+- **Modelo base:** [bhadresh-savani/bert-base-uncased-emotion](https://huggingface.co/bhadresh-savani/bert-base-uncased-emotion) (`bert-base-uncased` afinado para emociones).
+- **Contenido:** carga del dataset con `datasets`, tokenización y `Trainer` de Transformers, métricas con `evaluate` / scikit-learn, y práctica de entrenamiento y evaluación comparable al flujo del taller anterior.
+- **Artefactos:** la carpeta `Session 4/Taller/hf/` puede contener checkpoints guardados durante el entrenamiento; no es obligatoria para ejecutar el notebook desde cero (el modelo se puede volver a descargar desde Hugging Face).
 
 ---
 
