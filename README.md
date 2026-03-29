@@ -30,10 +30,14 @@ icesi_nlp/
 │   └── Taller/
 │       ├── taller3_transformers_from_scratch.ipynb     # Transformer desde (casi) cero, clasificación de emociones
 │       └── tokenizer_emotion/                           # Tokenizer guardado (opcional, para reproducibilidad)
-└── Session 4/
+├── Session 4/
+│   └── Taller/
+│       ├── 1-text-classification-with-hf.ipynb          # Clasificación de emociones con BERT (Hugging Face)
+│       └── hf/                                          # Checkpoints de entrenamiento (artefactos opcionales)
+└── Session 5/
     └── Taller/
-        ├── 1-text-classification-with-hf.ipynb          # Clasificación de emociones con BERT (Hugging Face)
-        └── hf/                                          # Checkpoints de entrenamiento (artefactos opcionales)
+        ├── 1_text_generation_reviews.ipynb               # Generación de texto con GPT-2 (fine-tuning en reseñas de hoteles)
+        └── Balanced_AHR.csv                              # Dataset de reseñas balanceadas de hoteles en español
 ```
 
 - **Session N:** corresponde a la sesión del curso.
@@ -45,7 +49,7 @@ icesi_nlp/
 
 - **Python** 3.10 (recomendado).
 - **Jupyter** (o entorno que ejecute notebooks).
-- Dependencias por taller: ver `requirements.txt` dentro de cada carpeta de taller (por ejemplo `Session 1/Taller 1/requirements.txt`). **Session 3** y **Session 4** instalan dependencias desde el propio notebook (PyTorch / PyTorch Lightning, `transformers`, `datasets`, `evaluate`, etc.); ambas pueden ejecutarse en **Google Colab** o en local con GPU recomendada para entrenar con comodidad.
+- Dependencias por taller: ver `requirements.txt` dentro de cada carpeta de taller (por ejemplo `Session 1/Taller 1/requirements.txt`). **Session 3**, **Session 4** y **Session 5** instalan dependencias desde el propio notebook (PyTorch / PyTorch Lightning, `transformers`, `datasets`, `evaluate`, etc.); pueden ejecutarse en **Google Colab** o en local con GPU recomendada para entrenar con comodidad.
 
 ---
 
@@ -126,6 +130,19 @@ Análisis de sentimientos sobre reseñas o textos.
 - **Modelo base:** [bhadresh-savani/bert-base-uncased-emotion](https://huggingface.co/bhadresh-savani/bert-base-uncased-emotion) (`bert-base-uncased` afinado para emociones).
 - **Contenido:** carga del dataset con `datasets`, tokenización y `Trainer` de Transformers, métricas con `evaluate` / scikit-learn, y práctica de entrenamiento y evaluación comparable al flujo del taller anterior.
 - **Artefactos:** la carpeta `Session 4/Taller/hf/` puede contener checkpoints guardados durante el entrenamiento; no es obligatoria para ejecutar el notebook desde cero (el modelo se puede volver a descargar desde Hugging Face).
+
+---
+
+## Session 5 - Taller
+
+### 1_text_generation_reviews.ipynb
+
+- **Objetivo:** fine-tuning de un modelo **GPT-2** pre-entrenado en reseñas en español para generar reseñas sintéticas de hoteles, con el propósito de balancear el dataset del trabajo de grado.
+- **Modelo base:** [Amloii/gpt2-reviewspanish](https://huggingface.co/Amloii/gpt2-reviewspanish) — GPT-2 (124M parámetros) pre-entrenado sobre un corpus extenso de reseñas en español, con sesgo natural hacia lenguaje de opinión.
+- **Dataset:** `Balanced_AHR.csv` — reseñas balanceadas de hoteles en español (generadas/procesadas para el trabajo de grado).
+- **Contenido:** carga y exploración del dataset, preparación de los datos para entrenamiento causal de lenguaje, fine-tuning del modelo GPT-2 con `transformers`, generación de nuevas reseñas condicionadas por categoría/sentimiento, y evaluación cualitativa de los textos generados.
+- **Motivación:** dificultad para encontrar datos de reseñas de hoteles en español; las reseñas generadas sirven para aumentar y balancear el corpus de trabajo de grado.
+- Compatible con **Google Colab** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rchicangana/icesi_nlp/blob/main/Session%205/Taller/1_text_generation_reviews.ipynb).
 
 ---
 
