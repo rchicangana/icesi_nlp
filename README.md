@@ -34,10 +34,14 @@ icesi_nlp/
 │   └── Taller/
 │       ├── 1-text-classification-with-hf.ipynb          # Clasificación de emociones con BERT (Hugging Face)
 │       └── hf/                                          # Checkpoints de entrenamiento (artefactos opcionales)
-└── Session 5/
+├── Session 5/
+│   └── Taller/
+│       ├── 1_text_generation_reviews.ipynb               # Generación de texto con GPT-2 (fine-tuning en reseñas de hoteles)
+│       └── Balanced_AHR.csv                              # Dataset de reseñas balanceadas de hoteles en español
+└── Session 6/
     └── Taller/
-        ├── 1_text_generation_reviews.ipynb               # Generación de texto con GPT-2 (fine-tuning en reseñas de hoteles)
-        └── Balanced_AHR.csv                              # Dataset de reseñas balanceadas de hoteles en español
+        ├── 2_ollama_langchain_reviews_hoteles.ipynb       # RAG con Ollama, LangChain y FAISS sobre reseñas de hoteles
+        └── resenas_hotel.csv                              # Dataset de reseñas (corpus para el vector store)
 ```
 
 - **Session N:** corresponde a la sesión del curso.
@@ -50,6 +54,7 @@ icesi_nlp/
 - **Python** 3.10 (recomendado).
 - **Jupyter** (o entorno que ejecute notebooks).
 - Dependencias por taller: ver `requirements.txt` dentro de cada carpeta de taller (por ejemplo `Session 1/Taller 1/requirements.txt`). **Session 3**, **Session 4** y **Session 5** instalan dependencias desde el propio notebook (PyTorch / PyTorch Lightning, `transformers`, `datasets`, `evaluate`, etc.); pueden ejecutarse en **Google Colab** o en local con GPU recomendada para entrenar con comodidad.
+- **Session 6** instala desde el notebook paquetes como `langchain-ollama`, `langchain-community`, `langchain-huggingface`, `ollama`, `faiss-gpu-cu12` (en Colab con GPU), `sentence-transformers` y `gradio`. Requiere **Ollama** con el modelo indicado en el notebook (por ejemplo `gemma4:e4b`) y GPU recomendable para embeddings e índice FAISS en Colab.
 
 ---
 
@@ -143,6 +148,19 @@ Análisis de sentimientos sobre reseñas o textos.
 - **Contenido:** carga y exploración del dataset, preparación de los datos para entrenamiento causal de lenguaje, fine-tuning del modelo GPT-2 con `transformers`, generación de nuevas reseñas condicionadas por categoría/sentimiento, y evaluación cualitativa de los textos generados.
 - **Motivación:** dificultad para encontrar datos de reseñas de hoteles en español; las reseñas generadas sirven para aumentar y balancear el corpus de trabajo de grado.
 - Compatible con **Google Colab** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rchicangana/icesi_nlp/blob/main/Session%205/Taller/1_text_generation_reviews.ipynb).
+
+---
+
+## Session 6 - Taller
+
+### 2_ollama_langchain_reviews_hoteles.ipynb
+
+- **Objetivo:** implementar un sistema **RAG (Retrieval-Augmented Generation)** sobre reseñas de hoteles para consultar qué opinan los huéspedes, usando **LangChain** para orquestar recuperación y generación y **Ollama** como backend del modelo de lenguaje.
+- **Dataset:** `resenas_hotel.csv` — reseñas en español con campos como identificador de reserva, tipo de habitación, motivo de viaje, comentarios positivo/negativo, texto completo y calificación (1–5).
+- **Stack:** embeddings con modelo multilingüe orientado a español (`mrm8488/multilingual-e5-large-ft-sts-spanish-matryoshka-768-64-5e` vía Hugging Face), **vector store FAISS** (retriever con varios documentos relevantes, p. ej. `k=5`), **ChatOllama** con modelo servido por Ollama (en el notebook: `gemma4:e4b`), cadena de QA, conversación con historial e **interfaz con Gradio**.
+- **Contenido:** preparación del corpus, instalación/carga de Ollama, construcción del índice, consultas simples, cadena conversacional y demo interactiva; conclusiones y posibles extensiones (metadatos en FAISS, análisis por segmentos).
+- **Entrega (equipo):** Laura Isabel Chaparro Navia, Ricardo Chicangana, Fabián Ortiz Collazos.
+- Compatible con **Google Colab** (GPU recomendada; en Colab se usa terminal para Ollama según el flujo del notebook) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rchicangana/icesi_nlp/blob/main/Session%206/Taller/2_ollama_langchain_reviews_hoteles.ipynb).
 
 ---
 
